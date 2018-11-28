@@ -11,3 +11,48 @@ The steps involved are to:
 5. Move forward to the east end of the world.
 
 */
+
+import "turns";
+
+
+/* MAIN FUNCTION */
+function GetToOtherSide() {
+	getToMtn();
+	climbSteps();
+	putBeeper();
+	decendSteps();
+}
+
+
+/* ****** SUB-FUNCTIONS ****** */
+
+/* Get to the Mountain */
+function getToMtn() {
+	while(frontIsClear()) {
+		move();
+	}
+}
+
+
+/* Climb Steps */
+function climbSteps(){
+	while(frontIsBlocked()) {
+		turnLeft();
+		move();
+		turnRight();
+		move();
+	}
+}
+
+
+/* Decend Steps */
+function decendSteps() {
+	move();
+		while(rightIsClear()) {
+			turnRight();
+			move();
+			turnLeft();
+			move();
+		}
+}
+
